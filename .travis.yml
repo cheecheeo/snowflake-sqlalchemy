@@ -8,4 +8,8 @@ python:
 # command to install dependencies
 install: "pip install ."
 # command to run tests
-script: python setup.py test
+script:
+  - python setup.py test
+  - python setup.py bdist_wheel
+  - pyvenv /tmp/test_snowflake_sqlalchemy
+  - test/integrate.sh
